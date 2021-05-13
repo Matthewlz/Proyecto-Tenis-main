@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activitat;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller{
@@ -9,6 +10,7 @@ class HomeController extends Controller{
 
     public function __invoke() {
         
-        return view("home.index");
+        $activitats = Activitat::all();
+        return view("home.index",compact('activitats'));
     }
 }

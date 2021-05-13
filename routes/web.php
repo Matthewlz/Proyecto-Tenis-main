@@ -7,7 +7,7 @@ use App\Http\Controllers\BotigaController;
 use App\Http\Controllers\ContactensController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SociController;
-use App\Http\Controllers\TaskController;
+
 use App\Http\Controllers\RestaurantController;
 
 
