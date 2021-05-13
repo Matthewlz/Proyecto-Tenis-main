@@ -16,6 +16,7 @@ class ActivityCreate extends Component
 
     public  $name;
     public  $description;
+    public  $short_description;
     public  $photo;
 
     public $checkExtras = [];
@@ -40,6 +41,7 @@ class ActivityCreate extends Component
         $this->validate([
             'name' => 'required',
             'description' => 'required',
+            'short_description' => 'required',
             'photo' => 'required|image|max:2000',
         ]);
         $this->photo->store('activitat', 'public');
@@ -51,6 +53,7 @@ class ActivityCreate extends Component
             $activitat->name =  $this->name;
             $activitat->image_path = $this->photo->hashName();
             $activitat->description = $this->description;
+            $activitat->short_description = $this->short_description;
             $activitat->tipus =  $this->tipus;
             $activitat->save();
             if (count($this->checkExtras) > 0) {

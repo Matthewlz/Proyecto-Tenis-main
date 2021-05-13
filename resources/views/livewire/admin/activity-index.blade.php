@@ -5,7 +5,7 @@
         <div>
             <div class="card">
                 <div class="card-header">
-                    <input wire:model="search" class="form-control" placeholder="Introdueix un usuari">
+                    <input wire:model="search" class="form-control" placeholder="filtra per tipus o activitat">
                 </div>
                 @if($activitats->count())
                 <div class="card-body">

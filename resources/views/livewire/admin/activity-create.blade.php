@@ -10,6 +10,20 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             </div>
+            <div class="col-md-12">
+                <i class="fas fa-pencil-alt prefix"></i>
+                <label for="text">Breu Descripció:</label><br>
+            </div>
+
+            <div class="col-md-12">
+                <div class="md-form">
+                    <textarea id="form10" class="md-textarea form-control"  wire:model="short_description" rows="3" maxlength="200"></textarea>
+                  
+                </div>
+                @error('short_description')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            </div>
 
             <div class="col-md-12">
                 <i class="fas fa-pencil-alt prefix"></i>

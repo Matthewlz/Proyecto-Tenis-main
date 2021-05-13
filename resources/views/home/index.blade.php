@@ -1,6 +1,7 @@
 @section('title') Home @endsection
 @section('capcelera')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/card.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -12,16 +13,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
-      <!-- Add jQuery library (required) -->
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-      
-      <!-- Add the evo-calendar.js for.. obviously, functionality! -->
-      <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css" />
+    <!-- Add jQuery library (required) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    <!-- Add the evo-calendar.js for.. obviously, functionality! -->
+    <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
     <script src="{{ asset('js/maps.js') }}" defer></script>
     <script src="{{ asset('js/calendari.js') }}" defer></script>
-    
-    
+
+
 @endsection
 @extends('layouts.navarplantilla')
 @section('body')
@@ -90,6 +92,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center mt-10 mb-10">
@@ -97,17 +100,65 @@
             </div>
             <div id="calendar"></div>
 
+         
+                <div class="container mt-5 mb-5">
+                    
+        
+                   
+                    <div class="row">
+                        @foreach ($activitats as $activitat)
+                        <!-- Team member -->
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                             <div class="d-flex justify-content-center">
+                                <h5 class="section-title h1">{{$activitat->name}}</h5>
+                             </div>
+                          
+                            <div class="image-flip">
+                                <div class="mainflip flip-0">
+                                    <div class="frontside">
+                                        <div class="card" style="background-image: url(/storage/activitat/{{$activitat->image_path}})">
+                                         
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="backside ">
+                                        <div class="card">
+                                            <div class="card-body text-center mt-4 ">
+                                                <h4 class="card-title"> Breu Descripció</h4>
+                                                <p class="card-text">{{$activitat->short_description}}</p>
+                                                <li><a href=""><i class=" icon-pencil icon-2x"></i>Inscriute</a></li>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ./Team member -->
+                        @endforeach
+                    </div>
+                   
+                </div>
+            
+          
+            <!-- Team -->
         </div>
     </div>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center mt-10 mb-10">
                 <h2>Ubicació</h2>
             </div>
             <div class="col-md-12 d-flex justify-content-center">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam doloremque quae maxime quasi iste. Eveniet recusandae veniam, totam quae dolorem illo nisi nihil delectus soluta accusantium beatae. Voluptatem, ex eius.
-                Maxime aspernatur, debitis dolorum dignissimos consequatur officiis. Modi, accusamus quas vel, fugiat, officia iure perferendis voluptates impedit cum labore praesentium veniam dignissimos! Omnis hic alias, doloribus amet rem illum commodi!
-                Excepturi veritatis est sunt impedit similique repellat tempora voluptas reiciendis ullam, vel temporibus labore et accusantium saepe odio inventore, debitis veniam quasi, iste dolor perferendis. Quae ab amet suscipit illum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam doloremque quae maxime quasi iste.
+                    Eveniet recusandae veniam, totam quae dolorem illo nisi nihil delectus soluta accusantium beatae.
+                    Voluptatem, ex eius.
+                    Maxime aspernatur, debitis dolorum dignissimos consequatur officiis. Modi, accusamus quas vel, fugiat,
+                    officia iure perferendis voluptates impedit cum labore praesentium veniam dignissimos! Omnis hic alias,
+                    doloribus amet rem illum commodi!
+                    Excepturi veritatis est sunt impedit similique repellat tempora voluptas reiciendis ullam, vel
+                    temporibus labore et accusantium saepe odio inventore, debitis veniam quasi, iste dolor perferendis.
+                    Quae ab amet suscipit illum.</p>
             </div>
 
         </div>
@@ -192,8 +243,8 @@
     </div>
 
 
-    
-  
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center mt-10 mb-10">
@@ -229,5 +280,5 @@
 
         </div>
     </div>
-  
+
 @endsection

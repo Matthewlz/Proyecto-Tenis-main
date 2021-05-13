@@ -17,6 +17,7 @@ class CreateActivitatsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('image_path');
+            $table->text('short_description');
             $table->text('description');
             $table->string('tipus');
             $table->timestamps();
