@@ -1,0 +1,10 @@
+.formulari-input{
+  border: solid #5B6DCD 10px;
+}
+.row{
+  background-color: black;
+  border-radius: 30px;
+}
+label,h1{
+  color: white;
+}
