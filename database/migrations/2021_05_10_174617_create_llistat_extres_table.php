@@ -15,8 +15,8 @@ class CreateLlistatExtresTable extends Migration
     {
         Schema::create('llistat_extres', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('activitat_id')->references('id')->on('activitats');
-            $table->foreignId('extra_id')->references('id')->on('extres');
+            $table->foreignId('activitat_id')->references('id')->on('activitats')->onDelete('cascade');
+            $table->foreignId('extra_id')->references('id')->on('extres')->onDelete('cascade');
             $table->timestamps();
         });
     }

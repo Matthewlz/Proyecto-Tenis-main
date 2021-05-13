@@ -29,6 +29,9 @@ class ActivityCreate extends Component
 
         return view('livewire.admin.activity-create', compact('opcions', 'extres'));
     }
+    public function mount(){
+        $this->tipus='Infantil';
+    }
 
     public function crear()
     {
@@ -43,6 +46,7 @@ class ActivityCreate extends Component
 
 
         DB::transaction(function () {
+          
             $activitat = new Activitat();
             $activitat->name =  $this->name;
             $activitat->image_path = $this->photo->hashName();

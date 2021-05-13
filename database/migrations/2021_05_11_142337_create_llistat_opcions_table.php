@@ -15,8 +15,8 @@ class CreateLlistatOpcionsTable extends Migration
     {
         Schema::create('llistat_opcions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('activitat_id')->references('id')->on('activitats');
-            $table->foreignId('opcio_id')->references('id')->on('opcions');
+            $table->foreignId('activitat_id')->references('id')->on('activitats')->onDelete('cascade');
+            $table->foreignId('opcio_id')->references('id')->on('opcions')->onDelete('cascade');
             $table->timestamps();
         });
     }

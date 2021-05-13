@@ -78,7 +78,10 @@
             </div>
             <div class="col-md-12 d-flex justify-content-center">
                 <select name="select"  wire:model="tipus" >
-                    <option value="Infantil" selected>Infantil</option>
+                    <option value="none" selected disabled hidden>
+                        Select an Option
+                    </option>
+                    <option value="Infantil">Infantil</option>
                     <option value="Adult">Adult</option>
                     <option value="Sense preferencia">Sense preferencia</option>
                 </select>

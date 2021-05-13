@@ -9,6 +9,6 @@ class Activitat extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'image_path','description'
+        'name', 'image_path','description','itpus'
     ];
 }

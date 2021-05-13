@@ -284,9 +284,9 @@ return [
                     'can' => 'admin.home',
                     'submenu' => [
                         [
-                            'text' => 'CrearActivitat',
+                            'text' => 'Activitat',
                             'icon_color' => 'red',
-                            'route' => 'admin.activitats.create',
+                            'route' => 'admin.activitats.index',
                             'can' => 'admin.home'
                         ],
                         [

@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-@livewire('admin.activity-create')
+@livewire('admin.activity-index')
 @stop
 
 @section('css')

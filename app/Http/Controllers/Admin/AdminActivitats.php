@@ -3,10 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Activitat;
 use Illuminate\Http\Request;
 
 class AdminActivitats extends Controller
 {
+    public function __construct() {
+        $this->middleware('can:admin.home')->only('index','create','edit','show');
+       
+        
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class AdminActivitats extends Controller
      */
     public function index()
     {
-        return view('admin.activitats.crear.index');
+        return view('admin.activitats.index');
     }
 
     /**
@@ -24,7 +30,7 @@ class AdminActivitats extends Controller
      */
     public function create()
     {
-        return view('admin.activitats.crear.crear');
+        return view('admin.activitats.crear');
     }
 
     /**
@@ -46,7 +52,10 @@ class AdminActivitats extends Controller
      */
     public function show($id)
     {
-        //
+        $activitat = Activitat::find($id);
+        $activitat->delete();
+        return view('admin.activitats.index');
+
     }
 
     /**
