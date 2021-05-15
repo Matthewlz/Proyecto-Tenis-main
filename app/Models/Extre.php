@@ -11,4 +11,10 @@ class Extre extends Model
         'name', 'description', 'preu',
     ];
     use HasFactory;
+
+    public function activitats()
+    {
+        return $this->belongsToMany(Activitat::class);
+    }
 }
+

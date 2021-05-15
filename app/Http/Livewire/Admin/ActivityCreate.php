@@ -3,11 +3,12 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Activitat;
+use App\Models\ActivitatsExtre;
+use App\Models\ActivitatsOpcion;
 use Livewire\Component;
 use App\Models\Opcion;
 use App\Models\Extre;
-use App\Models\LlistatExtre;
-use App\Models\llistatOpcion;
+
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
 
@@ -59,7 +60,7 @@ class ActivityCreate extends Component
             if (count($this->checkExtras) > 0) {
                 foreach ($this->checkExtras as $checkExtra) {
 
-                    $extre = new LlistatExtre();
+                    $extre = new ActivitatsExtre();
                     $extre->activitat_id = $activitat->id;
                     $extre->extra_id = $checkExtra;
                     $extre->save();
@@ -68,7 +69,7 @@ class ActivityCreate extends Component
 
             foreach ($this->checkOpcions as $checkOpcio) {
 
-                $opcio = new llistatOpcion();
+                $opcio = new ActivitatsOpcion();
                 $opcio->activitat_id = $activitat->id;
                 $opcio->opcio_id = $checkOpcio;
                 $opcio->save();

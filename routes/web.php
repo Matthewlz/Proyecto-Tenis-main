@@ -22,28 +22,27 @@ use App\Http\Controllers\RestaurantController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 
-Route::get('/', HomeController::class)->name('/');;
 
-Route::get('activitats/tennis',[ActivitatController::class,'tennis'])->name('activitats.tennis');
-Route::get('activitats/paddel',[ActivitatController::class,'paddel'])->name('activitats.paddel');
-Route::get('activitats/casal',[ActivitatController::class,'casal'])->name('activitats.casal');
-Route::get('contactens',[ContactensController::class,'index'] )->name('contactens.index');
-Route::post('contactens',[ContactensController::class,'store'] )->name('contactens.store');
-Route::get('soci',[SociController::class,'index'] )->name('soci.index');
-Route::resource('restaurant',RestaurantController::class)->names('restaurant');
-Route::resource('galeria',GalleryController::class)->names('galeria');
-Route::resource('botiga',BotigaController::class)->names('botiga');
+Route::get('/', HomeController::class)->name('/');
+
+Route::group(['prefix' => 'activitats',  'middleware' => 'auth'], function () {
+  Route::get('{activitat}', [ActivitatController::class, 'index'])->name('activitats.index');
+  Route::get('tennis', [ActivitatController::class, 'tennis'])->name('activitats.tennis');
+  Route::get('paddel', [ActivitatController::class, 'paddel'])->name('activitats.paddel');
+  Route::get('casal', [ActivitatController::class, 'casal'])->name('activitats.casal');
+});
+
+Route::get('contactens', [ContactensController::class, 'index'])->name('contactens.index');
+Route::post('contactens', [ContactensController::class, 'store'])->name('contactens.store');
+Route::get('soci', [SociController::class, 'index'])->name('soci.index');
+Route::resource('restaurant', RestaurantController::class)->names('restaurant');
+Route::resource('galeria', GalleryController::class)->names('galeria');
+Route::resource('botiga', BotigaController::class)->names('botiga');
 
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
   /* return view('dashboard');*/
-    return redirect('/admin');
+  return redirect('/admin');
 })->name('dashboard');
-
-
-

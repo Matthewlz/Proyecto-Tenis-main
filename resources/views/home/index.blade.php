@@ -126,7 +126,7 @@
                                             <div class="card-body text-center mt-4 ">
                                                 <h4 class="card-title"> Breu Descripció</h4>
                                                 <p class="card-text">{{$activitat->short_description}}</p>
-                                                <li><a href=""><i class=" icon-pencil icon-2x"></i>Inscriute</a></li>
+                                                <li><a href="{{route('activitats.index',$activitat)}}"><i class=" icon-pencil icon-2x"></i>Inscriute</a></li>
                                                
                                             </div>
                                         </div>

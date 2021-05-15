@@ -5,17 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Opcion extends Model
+class ActivitatsOpcion extends Model
 {
-
     use HasFactory;
-    
     protected $fillable = [
-        'name', 'preu', 'preu_soci',
+        'activitat_id', 'opcio_id',
     ];
-    public function apartats(){
-        return $this->hasMany(Apartat::class,'opcio_id','id');
-        }
- 
 }
-

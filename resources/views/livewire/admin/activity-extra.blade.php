@@ -12,6 +12,8 @@
                         <tr>
                             <th>ID</th>
                             <th>Nom</th>
+                            <th>Preu</th>
+                            <th>PreuSoci</th>
                             <th> <a class="btn btn-primary" href="{{route('extra.create')}}">Afegir</a></th>
                         </tr>
                     </thead>
@@ -20,6 +22,8 @@
                             <tr>
                                 <td>{{$extra->id}}</td>
                                 <td>{{$extra->name}}</td>
+                                <td>{{$extra->preu}}</td>
+                                <td>{{$extra->preu_soci}}</td>
                                 <td  style="width: 86px "><a class="btn btn-success" href="#">Editar</a></td>
                                <td>
                                 
@@ -58,7 +62,7 @@
             </div>
             @endif
         </div>
-        <a class="btn btn-primary" href="{{route('extra.index')}}">Tornar</a>
+      
      </div>
      
 </div>

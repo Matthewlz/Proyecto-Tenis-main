@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLlistatExtresTable extends Migration
+class CreateActivitatsOpcionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateLlistatExtresTable extends Migration
      */
     public function up()
     {
-        Schema::create('llistat_extres', function (Blueprint $table) {
+        Schema::create('activitats_opcions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('activitat_id')->references('id')->on('activitats')->onDelete('cascade');
-            $table->foreignId('extra_id')->references('id')->on('extres')->onDelete('cascade');
+            $table->foreignId('opcio_id')->references('id')->on('opcions')->onDelete('cascade');
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -28,6 +29,6 @@ class CreateLlistatExtresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('llistat_extres');
+        Schema::dropIfExists('activitats_opcions');
     }
 }
