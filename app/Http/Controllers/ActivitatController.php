@@ -10,17 +10,23 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 class ActivitatController extends Controller
 {
-
+/**
+ * methode on pasare la activitat opcions apartats y extress
+ */
 
     public function index(Activitat $activitat)
     {
        
-        $extres = $activitat->extres;
-        $opcions = $activitat->opcions;
-        $apartats = Apartat::all();
+        $extres = $activitat->extres; // recupero tots els extres de una activitat concreta
+        $opcions = $activitat->opcions;// recupero totes les opcions de una activitat concreta
+        $apartats = Apartat::all(); // recupero tots els apartats
         return view('activitats.index', compact('extres', 'opcions', 'activitat', 'apartats'));
     }
-
+/**
+ * casal
+ * tenis
+ * y torneig no els faig servir
+ */
     public function tennis()
     {
         return view('activitats.tennis');

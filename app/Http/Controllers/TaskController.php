@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    * retorna una vista amb una llista d'usuaris paginats de 10 en 10 es adir cada 10 usuaris paginara la pagina index
+    * task es una carpeta
+    * y aqui podrem veure els usuaris només
      */
     public function index()
     {
+
         $usuaris= User::paginate(10);
       
 
@@ -22,9 +23,8 @@ class TaskController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function create()
     {

@@ -10,6 +10,10 @@ class ContactensController extends Controller{
     public function index(){
       return view("contactens.index");
     }
+    /**
+     * Methode que envia un correu amb tots els camps rebuts del formulari cap el destinatari en el meu cas jo pero l'utilitzo amb Mailer
+     * i una vegada envia el correu sortira un alert que s'ha enviat un missatge confirmant que s'ha enviat
+     */
     public function store(Request $request){
 
         $request->validate([

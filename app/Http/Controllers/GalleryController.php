@@ -8,9 +8,7 @@ use App\Models\Galeria;
 class GalleryController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * retorna una galeria  paginada per 9 imatges i la passa en la vista
      */
     public function index(){
 

@@ -16,6 +16,18 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\AdminRestaurantSeccioController;
 use App\Http\Controllers\ContrasenyaController;
 
+
+/**
+ * En aquesta ruta es la ruta on no utilitzarem plantilles ni tags pero si components livewire on contenen components de front amb els seus propis controlados
+ * es a dir tindran el seu controlador y una vista a part he separat aquesta secció ja que implemento una plantilla de administració per administrar
+ * el dashboard de usuaris y el admin on es completament diferent de la web on sorgira només la informació cara el client
+ */
+/**
+ * en els metodes only sera on només acceptem del resource aquets metodes inserits en el only es a dir que per defecte el resource ens obliga implementar
+ * uns metodes amb ->only podem reduir els metodes
+ */
+// en el resource fas referencia amb la ruta admin.users.index y ja esta fet de manera que entres directament a index no fa falta posarlo ja que son els metodes
+// de resource per defecte
 Route::get('',[HomeController::class,'index']);
 Route::resource('tasks',TaskController::class);
 Route::resource('users',UserController::class)->only('index','show','edit','destroy','update')->names('admin.users');
@@ -28,6 +40,7 @@ Route::resource('activitats',AdminActivitats::class)->names('admin.activitats');
 Route::resource('casal',AdminActivitatsCasal::class)->names('admin.casal');
 Route::resource('opcio',AdminActivitatsOpcio::class)->names('admin.opcio');
 
+// en canvi en el prefix si haurem de ficar el metode que fa referencia per defecte
 Route::prefix('contrasenya')->group(function () {
    Route::get('/edit', [ContrasenyaController::class, 'edit'])->name('contrasenya.edit');
   

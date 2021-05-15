@@ -8,9 +8,8 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * retorna una vista
+     * el create  i els altres metodes el resource t'obliga a implementarlos si o si
      */
     public function index()
     {
