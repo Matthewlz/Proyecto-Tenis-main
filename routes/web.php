@@ -31,6 +31,7 @@ Route::group(['prefix' => 'activitats',  'middleware' => 'auth'], function () {
   Route::get('tennis', [ActivitatController::class, 'tennis'])->name('activitats.tennis');
   Route::get('paddel', [ActivitatController::class, 'paddel'])->name('activitats.paddel');
   Route::get('casal', [ActivitatController::class, 'casal'])->name('activitats.casal');
+  Route::post('inscriure', [ActivitatController::class, 'inscriure'])->name('activitats.inscriure');
 });
 
 Route::get('contactens', [ContactensController::class, 'index'])->name('contactens.index');

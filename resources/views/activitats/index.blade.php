@@ -1,7 +1,8 @@
 @section('title') Home @endsection
 @extends('layouts.navarplantilla')
 @section('body')
-
+<form action="{{route('activitats.inscriure')}}" method="POST">
+    @csrf
 <div class="container">
     <div class="row">
         <div class="col-md-12 d-flex justify-content-center mt-5">
@@ -41,21 +42,14 @@
 
                         <td>
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">{{ $extre->name }}</label>
+                                <input class="form-check-input" type="checkbox" name="extres[]" value="{{$extre->id}}">
+                               
                             </div>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
-            <tfoot>
-                <tr>
-                    <th></th>
-                    <th colspan="4">
-                        <button class="btn btn-primary float-right">Inscriure</button>
-                    </th>
-                </tr>
-            </tfoot>
+          
         </table>
 
     </main>
@@ -85,31 +79,24 @@
                 <tbody>
                     @foreach ($apartats as $apartat)
                     @if ($apartat->opcio_id==$opcio->id)
-                        
-                 
                         <tr>
-                            <td>{{ $apartat->name }}</td>
-                           
-
+                          
                             <td>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                                </div>
+                                <input type="hidden" name="id_activitat" value="{{$activitat->id}}">
+                                {{ $apartat->name }}
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="{{$apartat->id}}" name="{{$opcio->name}}"  id="flexRadioDefault1">  
+                                  </div>
                             </td>
                         </tr>
                         @endif
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th></th>
-                        <th colspan="4">
-                            <button class="btn btn-primary float-right">Inscriure</button>
-                        </th>
-                    </tr>
-                </tfoot>
             </table>
         </main>
     @endforeach
+    <button  type="submit"class="btn btn-primary float-right mr-20 mt-5 mb-5">Inscriure</button>
+</form>
 @endsection
